@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '../components/Header';
+import LinksBar from '../components/LinksBar';
 
 class Profile extends React.Component {
   render() {
     return (
       <div data-testid="page-profile">
+        <LinksBar />
         <Header />
         <h3>My Profile Name</h3>
         <img src="" alt="my-pic" />
