@@ -4,7 +4,7 @@ class Search extends React.Component {
   render() {
     return (
       <div data-testid="page-search">
-        <input type="text" value="" placeholder="Album or Artist Name" />
+        <input type="text" placeholder="Album or Artist Name" />
         <button type="button">Search</button>
       </div>
 
