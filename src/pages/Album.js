@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import LinksBar from '../components/LinksBar';
 import Loading from '../components/Loading';
 import getMusics from '../services/musicsAPI';
+import MusicCard from '../components/MusicCard';
 
 class Album extends React.Component {
   constructor() {
@@ -49,20 +50,12 @@ class Album extends React.Component {
         }
         {
           tracks.map((track) => (
-            <div key={ track.trackId }>
-              <p className="track-name">{ track.trackName }</p>
-              <audio
-                data-testid="audio-component"
-                src={ track.previewUrl }
-                controls
-              >
-                <track kind="captions" />
-                O seu navegador não suporta o elemento
-                {' '}
-                <code>audio</code>
-                .
-              </audio>
-            </div>
+            <MusicCard
+              key={ track.trackId }
+              trackId={ track.trackId }
+              previewUrl={ track.previewUrl }
+              trackName={ track.trackName }
+            />
           ))
         }
       </div>
