@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Loading from '../components/Loading';
 
 class Login extends React.Component {
   constructor() {
@@ -53,7 +54,7 @@ class Login extends React.Component {
 
   render() {
     const { name, disabled, loading } = this.state;
-    if (loading) return (<p>Carregando...</p>);
+    if (loading) return (<Loading />);
     return (
       <div data-testid="page-login">
         <input

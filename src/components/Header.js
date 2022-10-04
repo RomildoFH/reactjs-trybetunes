@@ -1,5 +1,6 @@
 import React from 'react';
 import { getUser } from '../services/userAPI';
+import Loading from './Loading';
 
 class Header extends React.Component {
   constructor() {
@@ -26,7 +27,7 @@ class Header extends React.Component {
 
   render() {
     const { loading, user } = this.state;
-    if (loading) return <p>Carregando...</p>;
+    if (loading) return <Loading />;
     return (
       <header data-testid="header-component">
         <p>
