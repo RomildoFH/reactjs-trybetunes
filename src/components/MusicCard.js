@@ -18,11 +18,6 @@ class MusicCard extends React.Component {
     this.getFavoritesIds();
   }
 
-  // componentDidUpdate() {
-  //   this.getFavorites();
-  //   this.getFavoritesIds();
-  // }
-
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;

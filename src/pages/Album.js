@@ -21,6 +21,10 @@ class Album extends React.Component {
     this.getAlbumMusics();
   }
 
+  componentDidUpdate() {
+    this.getAlbumMusics();
+  }
+
   getAlbumMusics = async () => {
     const { match: { params: { id } } } = this.props;
     const newArray = await getMusics(id);
