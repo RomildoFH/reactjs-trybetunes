@@ -18,6 +18,11 @@ class MusicCard extends React.Component {
     this.getFavoritesIds();
   }
 
+  // componentDidUpdate() {
+  //   this.getFavorites();
+  //   this.getFavoritesIds();
+  // }
+
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -25,8 +30,7 @@ class MusicCard extends React.Component {
     this.setState({
       [name]: value,
       loading: true,
-    });
-    this.fetchFavorites();
+    }, () => this.fetchFavorites());
   }
 
   fetchFavorites = async () => {
@@ -38,8 +42,6 @@ class MusicCard extends React.Component {
     this.setState({
       loading: false,
     });
-
-    // this.validateFavoriteState();
   };
 
   validateFavoriteState = async () => {
@@ -48,7 +50,7 @@ class MusicCard extends React.Component {
     if (FavoritesIds.includes(track.trackId)) {
       this.setState({
         favorite: true,
-        loading: false,
+        // loading: false,
       });
     }
     this.setState({
@@ -64,15 +66,14 @@ class MusicCard extends React.Component {
     this.setState({
       FavoritesIds: arrayIds,
       loading: true,
-    });
-    this.validateFavoriteState();
+    }, () => this.validateFavoriteState());
   };
 
   getFavorites = async () => {
     const newArray = await getFavoriteSongs();
     // console.log(newArray);
     this.setState({
-      loading: false,
+      // loading: false,
     });
     return newArray;
   };
