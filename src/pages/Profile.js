@@ -13,7 +13,6 @@ class Profile extends React.Component {
       email: '',
       image: '',
       description: '',
-      // loading: true,
     };
   }
 
@@ -34,16 +33,15 @@ class Profile extends React.Component {
 
   render() {
     const { name, email, image, description } = this.state;
-    // if (loading) return <Loading />;
     return (
       <div data-testid="page-profile">
         <LinksBar />
         <Header />
-        <img src={ image } alt={ name } />
+        <img src={ image } alt={ name } data-testid="profile-image" />
         <h3>{ name }</h3>
         <p>{ email }</p>
         <p>{ description }</p>
-        <Link to="profile/edit">Editar Perfil</Link>
+        <Link to="profile/edit">Editar perfil</Link>
       </div>
 
     );
