@@ -12,8 +12,8 @@ class MusicCard extends React.Component {
     };
   }
 
-  componentDidUpdate() {
-    this.fetchFavorites();
+  componentDidMount() {
+    // this.fetchFavorites();
   }
 
   handleChange({ target }) {
@@ -24,14 +24,19 @@ class MusicCard extends React.Component {
       [name]: value,
       loading: true,
     });
+    this.fetchFavorites();
   }
 
   fetchFavorites = async () => {
     const { track } = this.props;
+    // this.setState({
+    //   loading: true,
+    // });
     await addSong(track);
     this.setState({
       loading: false,
     });
+    // console.log('async realizado');
   };
 
   createCart = () => {
