@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -38,6 +38,9 @@ class MusicCard extends React.Component {
     const { FavoritesIds } = this.state;
     if (FavoritesIds.includes(track.trackId) === false) {
       await addSong(track);
+    }
+    if (FavoritesIds.includes(track.trackId) === true) {
+      await removeSong(track);
     }
     this.setState({
       loading: false,
@@ -122,7 +125,6 @@ class MusicCard extends React.Component {
           !loading && this.createCart()
         }
       </div>
-
     );
   }
 }
