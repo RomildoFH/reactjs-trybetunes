@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class MusicCard extends React.Component {
   constructor() {
     super();
     this.state = {
-      loading: false,
+      loading: true,
       favorite: false,
+      FavoritesIds: [],
     };
   }
 
   componentDidMount() {
-    // this.fetchFavorites();
+    this.getFavorites();
+    this.getFavoritesIds();
   }
 
   handleChange({ target }) {
@@ -29,14 +31,50 @@ class MusicCard extends React.Component {
 
   fetchFavorites = async () => {
     const { track } = this.props;
-    // this.setState({
-    //   loading: true,
-    // });
-    await addSong(track);
+    const { FavoritesIds } = this.state;
+    if (FavoritesIds.includes(track.trackId) === false) {
+      await addSong(track);
+    }
     this.setState({
       loading: false,
     });
-    // console.log('async realizado');
+
+    // this.validateFavoriteState();
+  };
+
+  validateFavoriteState = async () => {
+    const { track } = this.props;
+    const { FavoritesIds } = this.state;
+    if (FavoritesIds.includes(track.trackId)) {
+      this.setState({
+        favorite: true,
+        loading: false,
+      });
+    }
+    this.setState({
+      loading: false,
+    });
+  };
+
+  getFavoritesIds = async () => {
+    const newArray = await getFavoriteSongs();
+    const arrayIds = newArray.map((objeto) => (
+      objeto.trackId
+    ));
+    this.setState({
+      FavoritesIds: arrayIds,
+      loading: true,
+    });
+    this.validateFavoriteState();
+  };
+
+  getFavorites = async () => {
+    const newArray = await getFavoriteSongs();
+    // console.log(newArray);
+    this.setState({
+      loading: false,
+    });
+    return newArray;
   };
 
   createCart = () => {
