@@ -18,9 +18,9 @@ class Favorites extends React.Component {
     this.getFavorites();
   }
 
-  componentDidUpdate() {
-    this.getFavorites();
-  }
+  // componentDidUpdate() {
+  //   this.getFavorites();
+  // }
 
   getFavorites = async () => {
     const newArray = await getFavoriteSongs();
@@ -30,6 +30,18 @@ class Favorites extends React.Component {
       loading: false,
     });
     return newArray;
+  };
+
+  removeTrack = (track) => {
+    console.log(track);
+    const { tracks } = this.state;
+    const newArray = tracks.filter((music) => (
+      music !== track
+    ));
+    // console.log(newArray);
+    this.setState({
+      tracks: newArray,
+    });
   };
 
   createList = () => {
@@ -44,6 +56,7 @@ class Favorites extends React.Component {
               previewUrl={ track.previewUrl }
               trackName={ track.trackName }
               track={ track }
+              removeTrack={ this.removeTrack }
             />
           ))
         }

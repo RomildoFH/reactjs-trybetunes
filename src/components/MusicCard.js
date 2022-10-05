@@ -29,13 +29,14 @@ class MusicCard extends React.Component {
   }
 
   fetchFavorites = async () => {
-    const { track } = this.props;
+    const { track, removeTrack } = this.props;
     const { FavoritesIds } = this.state;
     if (FavoritesIds.includes(track.trackId) === false) {
       await addSong(track);
     }
     if (FavoritesIds.includes(track.trackId) === true) {
       await removeSong(track);
+      removeTrack(track);
     }
     this.setState({
       loading: false,
