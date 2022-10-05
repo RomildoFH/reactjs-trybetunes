@@ -35,7 +35,7 @@ class Favorites extends React.Component {
   createList = () => {
     const { tracks } = this.state;
     const result = (
-      <div className="album-container">
+      <div className="album-container" data-testid="page-favorites">
         {
           tracks.map((track) => (
             <MusicCard
