@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Loading from './Loading';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
-class MusicCard extends React.Component {
+class FavoriteMusicCard extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -29,13 +29,14 @@ class MusicCard extends React.Component {
   }
 
   fetchFavorites = async () => {
-    const { track } = this.props;
+    const { track, removeTrack } = this.props;
     const { FavoritesIds } = this.state;
     if (FavoritesIds.includes(track.trackId) === false) {
       await addSong(track);
     }
     if (FavoritesIds.includes(track.trackId) === true) {
       await removeSong(track);
+      removeTrack(track);
     }
     this.setState({
       loading: false,
@@ -124,10 +125,10 @@ class MusicCard extends React.Component {
   }
 }
 
-MusicCard.propTypes = {
+FavoriteMusicCard.propTypes = {
   trackId: PropTypes.string,
   trackName: PropTypes.string,
   previewUrl: PropTypes.string,
 }.isRequired;
 
-export default MusicCard;
+export default FavoriteMusicCard;

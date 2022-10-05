@@ -1,8 +1,8 @@
 import React from 'react';
+import FavoriteMusicCard from '../components/FavoriteMusicCard';
 import Header from '../components/Header';
 import LinksBar from '../components/LinksBar';
 import Loading from '../components/Loading';
-import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Favorites extends React.Component {
@@ -50,7 +50,7 @@ class Favorites extends React.Component {
       <div className="album-container" data-testid="page-favorites">
         {
           tracks.map((track) => (
-            <MusicCard
+            <FavoriteMusicCard
               key={ track.trackId }
               trackId={ track.trackId }
               previewUrl={ track.previewUrl }
