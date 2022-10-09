@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+}
+
+.page-search {
+  display: flex;
+  height: 100%;
+}
+
+.left-side-container {
+  align-items: center;
+  background-color: rgb(250, 244, 244);
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  min-height: 100%;
+  padding-top: 10px;
+  position: fixed;
+  width: 18%;
+}
+
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 400px;
+  justify-content: space-around;
+  max-width: 100%;
+}
+
+.links-container {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  justify-content: space-around;
+  max-width: 100%;
+}
+
+.logo-aside {
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.link-line {
+  align-items: center;
+  color: black;
+  display: flex;
+  height: 33%;
+  justify-content: center;
+  width: 100%;
+}
+
+.link-line :nth-child( 1 ) {
+  height: 22px;
+}
+
+.link-line :nth-child( 2 ) {
+  height: 22px;
+}
+
+.nav-link {
+  color: black;
+  font-size: 22px;
+  margin-left: 2px;
+  text-decoration: none;
+}
+
+.search-container {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: baseline;
+  margin-left: 18%;
+  max-height: 100%;
+}
+
+.search-control-container {
+  align-items: center;
+  background: linear-gradient(123.66deg, rgb(0, 59, 229) 12.08%, rgb(0, 213, 226) 86.52%);
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+  max-height: 200px;
+  min-height: 200px;
+  width: 100%;
+}
+
+.search-artist-input {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 23px;
+  color: white;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  height: 40px;
+  letter-spacing: 0.03em;
+  line-height: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 400px;
+}
+
+.search-artist-button {
+  background: rgb(0, 213, 226);
+  border-radius: 23px;
+  height: 40px;
+  width: 114px;
+}
+
+.album-container {
+  width: 100%;
+}
+
+.lista-container {
+  margin-left: 10px;
+}
+
+.lista-container h3 {
+  margin-bottom: 20px;
+}
+
+.album-card {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: baseline;
+  margin: 10px 0;
+  max-height: 100px;
+}
+
+.album-card img {
+  width: 100px;
+}

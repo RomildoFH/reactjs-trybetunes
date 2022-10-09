@@ -31,7 +31,7 @@ class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <p>
-          Bem Vindo,
+          Olá,
           <span
             data-testid="header-user-name"
           >

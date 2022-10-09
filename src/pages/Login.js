@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
+import './Login.css';
+import logo from '../images/logo.png';
 
 class Login extends React.Component {
   constructor() {
@@ -56,18 +58,21 @@ class Login extends React.Component {
     const { name, disabled, loading } = this.state;
     if (loading) return (<Loading />);
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="login-container">
+        <img src={ logo } alt="logo" />
         <input
           type="text"
           value={ name }
           name="name"
           placeholder="User Name"
           data-testid="login-name-input"
+          className="input-text-login"
           onChange={ (event) => this.handleChange(event) }
         />
         <button
           type="button"
           data-testid="login-submit-button"
+          className="login-submit-button"
           onClick={ this.handleButton }
           disabled={ disabled }
         >
